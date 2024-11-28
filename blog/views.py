@@ -1,7 +1,6 @@
 # type: ignore
 from django.db.models import QuerySet
 from django.http import HttpRequest, HttpResponse, HttpResponseNotFound
-from django.http.response import Http404
 
 from .components import post_list, wrapper, post as post_display
 from .models import Post
