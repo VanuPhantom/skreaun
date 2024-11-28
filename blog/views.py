@@ -1,5 +1,5 @@
 from django.http import HttpRequest, HttpResponse
-from htpy import HTMLElement, html,body,h1,p
+from htpy import HTMLElement, body, h1, html, p
 
 # Create your views here.
 def index(_: HttpRequest) -> HttpResponse:
