@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=255)
@@ -8,5 +9,4 @@ class Post(models.Model):
 
     @property
     def url(self):
-        return reverse("post", args=[self.id]) # type: ignore
-
+        return reverse("post", args=[self.id])  # type: ignore
