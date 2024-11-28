@@ -5,6 +5,7 @@ from htpy import (
     HTMLElement,
     a,
     body,
+    div,
     h1,
     h2,
     html,
@@ -24,7 +25,7 @@ from django.templatetags.static import static
 def wrapper(*children: list[Element]) -> HTMLElement:
     return html[
         head[link(rel="stylesheet", href=static("/blog/stylesheet.css"))],
-        body[h1["Vanu's blog"], *children],
+        body[div(".container")[h1["Vanu's blog"], *children]],
     ]
 
 
