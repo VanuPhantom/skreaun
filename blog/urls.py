@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns: list[URLResolver | URLPattern] = [
         path("", views.index, name="index"),
-        path("<post_id>", views.post, name="post")
+        path("<int:post_id>", views.post, name="post")
         ]
 
