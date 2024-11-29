@@ -31,8 +31,8 @@ def wrapper(*children: Element) -> HTMLElement:
 
 
 def post_list(posts: Iterable[Post]) -> Element:
-    return main[ul[[li[a({"href": post.url})[str(post.title)]] for post in posts]]]
+    return main[ul[[li[a({"href": post.url})[post.title]] for post in posts]]]
 
 
 def post(post: Post) -> Element:
-    return main[h2[str(post.title)], p[str(post.content)]]
+    return main[h2[str(post.title)], p[post.content]]
