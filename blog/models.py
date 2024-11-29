@@ -9,7 +9,7 @@ class Post(models.Model):
 
     @property
     def url(self):
-        return reverse("post", args=[self.pk])
+        return reverse("blog:post", args=[self.pk])
 
     @property
     def html(self):
