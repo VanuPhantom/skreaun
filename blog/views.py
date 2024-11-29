@@ -11,9 +11,8 @@ def index(_: HttpRequest) -> HttpResponse:
 
 
 def post(_: HttpRequest, post_id: int) -> HttpResponse:
-    post = Post.objects.get(pk=post_id)
-    
-    if post is None:
-        return HttpResponseNotFound()
-    else:
+    try:
+        post = Post.objects.get(pk=post_id) 
         return HttpResponse(wrapper(post_display(post)))
+    except Post.DoesNotExist:
+        return HttpResponseNotFound()
