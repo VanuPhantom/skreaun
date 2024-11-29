@@ -22,7 +22,7 @@ from .models import Post
 from django.templatetags.static import static
 
 
-def wrapper(*children: list[Element]) -> HTMLElement:
+def wrapper(*children: Element) -> HTMLElement:
     return html[
         head[link(rel="stylesheet", href=static("/blog/stylesheet.css"))],
         body[div(".container")[h1["Vanu's blog"], *children]],
