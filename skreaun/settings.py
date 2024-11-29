@@ -32,6 +32,7 @@ ALLOWED_HOSTS: list[str] = []
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
+    'landing.apps.LandingConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
