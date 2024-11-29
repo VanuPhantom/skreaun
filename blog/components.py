@@ -1,5 +1,6 @@
 from typing import Iterable
 
+from django.urls import reverse
 from htpy import (
     Element,
     HTMLElement,
@@ -25,7 +26,7 @@ from django.templatetags.static import static
 def wrapper(*children: Element) -> HTMLElement:
     return html[
         head[link(rel="stylesheet", href=static("/blog/stylesheet.css"))],
-        body[div(".container")[h1["Vanu's blog"], *children]],
+        body[div(".container")[h1[a(href=reverse("index"))["Vanu's blog"]], *children]],
     ]
 
 
