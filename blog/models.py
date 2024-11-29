@@ -2,6 +2,7 @@ from datetime import date
 
 from django.db import models
 from django.urls import reverse
+from django_stubs_ext.db.models import TypedModelMeta
 from markdown import markdown
 
 # Create your models here.
@@ -17,3 +18,6 @@ class Post(models.Model):
     @property
     def html(self):
         return markdown(self.content)
+
+    class Meta(TypedModelMeta):
+        ordering = ("-date",)

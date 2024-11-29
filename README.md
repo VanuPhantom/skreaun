@@ -4,7 +4,7 @@
 ## Features
 - [x] A list of blog posts
 - [x] Rendering of blog posts with Markdown
-- [ ] Sorting blog posts by date
+- [x] Sorting blog posts by date
 - [ ] Pagination
 - [x] A home page
 - [ ] Displaying recent blog posts on the landing page
