@@ -17,6 +17,7 @@ from htpy import (
     head,
     link,
 )
+from markupsafe import Markup
 
 from .models import Post
 
@@ -35,4 +36,4 @@ def post_list(posts: Iterable[Post]) -> Element:
 
 
 def post(post: Post) -> Element:
-    return main[h2[str(post.title)], p[post.content]]
+    return main[h2[str(post.title)], p[Markup(post.html)]]

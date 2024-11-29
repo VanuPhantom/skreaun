@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from markdown import markdown
 
 # Create your models here.
 class Post(models.Model):
@@ -10,3 +10,7 @@ class Post(models.Model):
     @property
     def url(self):
         return reverse("post", args=[self.pk])
+
+    @property
+    def html(self):
+        return markdown(self.content)
