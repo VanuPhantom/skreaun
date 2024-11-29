@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db import models
 from django.urls import reverse
 from markdown import markdown
@@ -6,6 +8,7 @@ from markdown import markdown
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
+    date = models.DateField(default=date.today)
 
     @property
     def url(self):
