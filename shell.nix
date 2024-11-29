@@ -6,6 +6,7 @@ pkgs.mkShell {
     python312
     python312Packages.pip
     python312Packages.virtualenvwrapper
+    git
   ];
 
   shellHook = ''
