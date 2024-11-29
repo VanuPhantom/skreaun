@@ -6,6 +6,7 @@
 - [x] Rendering of blog posts with Markdown
 - [ ] Sorting blog posts by date
 - [ ] Pagination
-- [ ] A home page
+- [x] A home page
+- [ ] Displaying recent blog posts on the landing page
 - [ ] A management UI for adding blog posts
 - [ ] Tests

@@ -1,6 +1,7 @@
-from django.http import HttpRequest, HttpResponse, request
-from django.shortcuts import render
+from django.http import HttpRequest, HttpResponse
+
+from .components import landing
 
 # Create your views here.
 def index(_: HttpRequest) -> HttpResponse:
-    return HttpResponse("Landing page")
+    return HttpResponse(landing())
