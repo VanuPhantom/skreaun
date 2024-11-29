@@ -9,4 +9,4 @@ class Post(models.Model):
 
     @property
     def url(self):
-        return reverse("post", args=[self.id])  # type: ignore
+        return reverse("post", args=[self.pk])
