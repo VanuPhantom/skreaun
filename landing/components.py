@@ -41,10 +41,22 @@ def contact() -> Node:
 
 
 def blog(posts: Iterable[Post]) -> Node:
+    blog_url = reverse("blog:index")
+
     return [
         h2["Blog"],
-        ul[[li[post_link(post = post)] for post in posts]],
-        p[a(href=reverse("blog:index"))["More posts..."]],
+        ul[[li[post_link(post=post)] for post in posts]],
+        p[
+            a(
+                {
+                    "href": blog_url,
+                    "hx-get": blog_url,
+                    "hx-target": "main",
+                    "hx-swap": "outerHTML",
+                    "hx-push-url": "true",
+                }
+            )["More posts..."]
+        ],
     ]
 
 
