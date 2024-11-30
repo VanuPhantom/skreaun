@@ -1,5 +1,9 @@
+from typing import Iterable
+
+from django.urls import reverse
 from htpy import Element, Node, a, b, h2, li, p, ul
 
+from blog.models import Post
 from common.components import wrapper
 
 
@@ -35,5 +39,13 @@ def contact() -> Node:
     ]
 
 
-def landing() -> Element:
-    return wrapper(intro(), contact())
+def blog(posts: Iterable[Post]) -> Node:
+    return [
+        h2["Blog"],
+        ul[[li[post.title] for post in posts]],
+        p[a(href=reverse("blog:index"))["More posts..."]],
+    ]
+
+
+def landing(posts: Iterable[Post]) -> Element:
+    return wrapper(intro(), contact(), blog(posts))

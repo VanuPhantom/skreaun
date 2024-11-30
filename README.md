@@ -7,7 +7,7 @@
 - [x] Sorting blog posts by date
 - [ ] Pagination
 - [x] A home page
-- [ ] Displaying recent blog posts on the landing page
+- [x] Displaying recent blog posts on the landing page
 - [ ] A management UI for adding blog posts
 - [ ] Tests
 - [ ] A custom 404 page
