@@ -12,26 +12,23 @@ from .models import Post
 
 def post_list(*, posts: Iterable[Post], page: int, total_pages: int) -> Element:
     return content(
-        ul[
-            [
-                li[
-                    a(
-                        {
-                            "href": post.url,
-                            "hx-get": post.url,
-                            "hx-trigger": "click",
-                            "hx-target": "main",
-                            "hx-swap": "outerHTML",
-                            "hx-push-url": "true",
-                        }
-                    )[post.title]
-                ]
-                for post in posts
-            ]
-        ],
+        ul[[li[post_link(post=post)] for post in posts]],
         pagination_controls(page=page, total_pages=total_pages),
         sub_heading="Vanu's blog",
     )
+
+
+def post_link(*, post: Post) -> Element:
+    return a(
+        {
+            "href": post.url,
+            "hx-get": post.url,
+            "hx-trigger": "click",
+            "hx-target": "main",
+            "hx-swap": "outerHTML",
+            "hx-push-url": "true",
+        }
+    )[post.title]
 
 
 def pagination_controls(*, page: int, total_pages: int) -> Element:

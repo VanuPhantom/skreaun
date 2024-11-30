@@ -4,6 +4,7 @@ from django.urls import reverse
 from htpy import Element, Node, a, b, h2, li, p, ul
 
 from blog.models import Post
+from blog.components import post_link
 from common.components import content, wrapper
 
 
@@ -42,7 +43,7 @@ def contact() -> Node:
 def blog(posts: Iterable[Post]) -> Node:
     return [
         h2["Blog"],
-        ul[[li[a(href=post.url)[post.title]] for post in posts]],
+        ul[[li[post_link(post = post)] for post in posts]],
         p[a(href=reverse("blog:index"))["More posts..."]],
     ]
 
