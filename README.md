@@ -11,3 +11,5 @@
 - [ ] A management UI for adding blog posts
 - [ ] Tests
 - [ ] A custom 404 page
+- [ ] CI/CD
+- [ ] Infrastructure provision using Terraform
