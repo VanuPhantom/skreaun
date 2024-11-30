@@ -18,21 +18,19 @@ def contact() -> Node:
         h2["Where to find me"],
         ul[
             [
-                [
-                    li[a(href=url)[text]]
-                    for url, text in [
-                        (
-                            "https://zug.network/@VanuPhantom",
-                            "@VanuPhantom@zug.network",
-                        ),
-                        ("https://github.com/VanuPhantom", "github.com/VanuPhantom"),
-                        (
-                            "https://soundcloud.com/VanuPhantom",
-                            "soundcloud.com/VanuPhantom",
-                        ),
-                    ]
+                li[a(href=url)[text]]
+                for url, text in [
+                    (
+                        "https://zug.network/@VanuPhantom",
+                        "@VanuPhantom@zug.network",
+                    ),
+                    ("https://github.com/VanuPhantom", "github.com/VanuPhantom"),
+                    (
+                        "https://soundcloud.com/VanuPhantom",
+                        "soundcloud.com/VanuPhantom",
+                    ),
                 ]
-            ],
+            ]
         ],
     ]
 
