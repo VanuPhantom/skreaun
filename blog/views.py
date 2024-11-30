@@ -1,18 +1,33 @@
-from django.http import HttpRequest, HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound
+from django.views.decorators.vary import vary_on_headers
+
+from common.components import wrapper
+from common.http import HttpRequest
 
 from .components import post as post_display, post_list
 from .models import Post
 
 
 # Create your views here.
-def index(_: HttpRequest) -> HttpResponse:
+@vary_on_headers("HX-Request")
+def index(request: HttpRequest) -> HttpResponse:
     posts = Post.objects.all()
-    return HttpResponse(post_list(posts))
+    content = post_list(posts)
+
+    if not request.htmx:
+        content = wrapper(content)
+
+    return HttpResponse(content)
 
 
-def post(_: HttpRequest, post_id: int) -> HttpResponse:
+def post(request: HttpRequest, post_id: int) -> HttpResponse:
     try:
         post = Post.objects.get(pk=post_id)
-        return HttpResponse(post_display(post))
+        content = post_display(post)
+
+        if not request.htmx:
+            content = wrapper(content)
+
+        return HttpResponse(content)
     except Post.DoesNotExist:
         return HttpResponseNotFound()
