@@ -9,14 +9,19 @@ from .components import landing
 
 
 # Create your views here.
-def index(_: HttpRequest) -> HttpResponse:
+@vary_on_headers("HX-Request")
+def index(request: HttpRequest) -> HttpResponse:
     posts = Post.objects.all()[:3]
+    content = landing(posts)
 
-    return HttpResponse(landing(posts))
+    if not request.htmx:
+        content = wrapper(content)
+
+    return HttpResponse(content)
 
 
 @vary_on_headers("HX-Request")
-def page_not_found(request: HttpRequest, exception = None) -> HttpResponse:
+def page_not_found(request: HttpRequest, exception=None) -> HttpResponse:
     if request.htmx:
         return HttpResponseNotFound()
     else:

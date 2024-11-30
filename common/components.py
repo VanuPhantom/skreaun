@@ -18,11 +18,24 @@ from htpy import (
 
 
 def wrapper(*children: Node) -> HTMLElement:
+    landing_url = reverse("landing:index")
+
     return html[
         head[link(rel="stylesheet", href=static("/blog/stylesheet.css"))],
         body[
             div(".container")[
-                h1[a(href=reverse("landing:index"))["Vanu's site"]], children
+                h1[
+                    a(
+                        {
+                            "href": landing_url,
+                            "hx-get": landing_url,
+                            "hx-target": "main",
+                            "hx-swap": "outerHTML",
+                            "hx-push-url": "true",
+                        }
+                    )["Vanu's site"]
+                ],
+                children,
             ],
             script(src=static("dist/htmx.min.js")),
         ],

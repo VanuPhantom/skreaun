@@ -61,4 +61,4 @@ def blog(posts: Iterable[Post]) -> Node:
 
 
 def landing(posts: Iterable[Post]) -> Element:
-    return wrapper(content(intro(), contact(), blog(posts)))
+    return content(intro(), contact(), blog(posts))
