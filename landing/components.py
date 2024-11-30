@@ -42,7 +42,7 @@ def contact() -> Node:
 def blog(posts: Iterable[Post]) -> Node:
     return [
         h2["Blog"],
-        ul[[li[post.title] for post in posts]],
+        ul[[li[a(href=post.url)[post.title]] for post in posts]],
         p[a(href=reverse("blog:index"))["More posts..."]],
     ]
 
