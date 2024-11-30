@@ -4,7 +4,7 @@ from django.urls import reverse
 from htpy import Element, Node, a, b, h2, li, p, ul
 
 from blog.models import Post
-from common.components import wrapper
+from common.components import content, wrapper
 
 
 def intro() -> Element:
@@ -48,4 +48,4 @@ def blog(posts: Iterable[Post]) -> Node:
 
 
 def landing(posts: Iterable[Post]) -> Element:
-    return wrapper(intro(), contact(), blog(posts))
+    return wrapper(content(intro(), contact(), blog(posts)))
