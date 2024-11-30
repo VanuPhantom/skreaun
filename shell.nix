@@ -7,6 +7,7 @@ pkgs.mkShell {
     python312Packages.pip
     python312Packages.virtualenvwrapper
     git
+    curl
   ];
 
   shellHook = ''
@@ -14,6 +15,7 @@ pkgs.mkShell {
     virtualenv $VENV
     source $VENV/bin/activate
     pip install -r requirements.txt || exit
+    curl https://unpkg.com/htmx.org@2.0.3/dist/htmx.min.js --create-dirs -o ./dist/htmx.min.js || exit
   '';
 }
 

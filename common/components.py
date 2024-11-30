@@ -1,6 +1,6 @@
 from django.templatetags.static import static
 from django.urls import reverse
-from htpy import HTMLElement, Node, a, body, div, h1, h2, head, html, link, main
+from htpy import HTMLElement, Node, a, body, div, h1, h2, head, html, link, main, script
 
 
 def wrapper(*children: Node, sub_heading: Node = None) -> HTMLElement:
@@ -14,6 +14,7 @@ def wrapper(*children: Node, sub_heading: Node = None) -> HTMLElement:
             div(".container")[
                 h1[a(href=reverse("landing:index"))["Vanu's site"]],
                 main[sub_heading_component, *children],
-            ]
+            ],
+            script(src=static("dist/htmx.min.js")),
         ],
     ]
