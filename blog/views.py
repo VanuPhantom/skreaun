@@ -27,6 +27,7 @@ def index(request: HttpRequest) -> HttpResponse:
     return HttpResponse(content)
 
 
+@vary_on_headers("HX-Request")
 def post(request: HttpRequest, post_id: int) -> HttpResponse:
     try:
         post = Post.objects.get(pk=post_id)
