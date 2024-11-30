@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import Http404, HttpResponse
 from django.views.decorators.vary import vary_on_headers
 
 from common.components import wrapper
@@ -37,4 +37,4 @@ def post(request: HttpRequest, post_id: int) -> HttpResponse:
 
         return HttpResponse(content)
     except Post.DoesNotExist:
-        return HttpResponseNotFound()
+        raise Http404("This post does not exist.")
