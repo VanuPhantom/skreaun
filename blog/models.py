@@ -19,5 +19,8 @@ class Post(models.Model):
     def html(self):
         return markdown(self.content)
 
+    def __str__(self) -> str:
+        return self.title
+
     class Meta(TypedModelMeta):
         ordering = ("-date",)

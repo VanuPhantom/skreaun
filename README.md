@@ -8,7 +8,7 @@
 - [x] Pagination
 - [x] A home page
 - [x] Displaying recent blog posts on the landing page
-- [ ] A management UI for adding blog posts
+- [x] A management UI for adding blog posts
 - [ ] Tests
 - [x] A custom 404 page
 - [ ] CI/CD
