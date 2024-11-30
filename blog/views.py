@@ -11,8 +11,15 @@ from .models import Post
 # Create your views here.
 @vary_on_headers("HX-Request")
 def index(request: HttpRequest) -> HttpResponse:
-    posts = Post.objects.all()
-    content = post_list(posts)
+    raw_page_index = request.GET.get("page", "0")
+    page_index = int(raw_page_index) if raw_page_index.isdecimal() else 0
+
+    posts = Post.objects.all()[page_index * 20 : (page_index + 1) * 20]
+
+    total_posts = Post.objects.count()
+    total_pages = total_posts // 20 + (1 if total_posts % 20 > 0 else 0)
+
+    content = post_list(posts=posts, page=page_index + 1, total_pages=total_pages)
 
     if not request.htmx:
         content = wrapper(content)
