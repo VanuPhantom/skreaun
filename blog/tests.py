@@ -40,7 +40,7 @@ class PostViewTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
 
-    def test_non_existent_id_gives_404(self):
+    def test_non_existent_post_gives_404(self):
         response = self.client.get(reverse("blog:post", args=[300]))
 
         self.assertEqual(response.status_code, 404)
