@@ -13,3 +13,7 @@
 - [x] A custom 404 page
 - [x] CI
 - [x] Infrastructure provisioning using Terraform
+
+## Terraform and Linode
+*Skreaun* uses [*Terraform*](https://terraform.io) to deploy its infrastructure on [Linode](https://linode.com).
+This requires you to provide a **Linode personal access token**. This token should be put in `infrastructure/linode-token.txt`.
