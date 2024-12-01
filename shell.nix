@@ -8,6 +8,9 @@ pkgs.mkShell {
     python312Packages.virtualenvwrapper
     git
     curl
+    terraform
+    terraform-providers.linode
+    linode-cli
   ];
 
   shellHook = ''

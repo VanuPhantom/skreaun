@@ -12,4 +12,4 @@
 - [x] Tests
 - [x] A custom 404 page
 - [x] CI
-- [ ] Infrastructure provisioning using Terraform
+- [x] Infrastructure provisioning using Terraform
