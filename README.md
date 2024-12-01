@@ -13,6 +13,7 @@
 - [x] A custom 404 page
 - [x] CI
 - [x] Infrastructure provisioning using Terraform
+- [ ] Deploying the app using Docker
 
 ## Terraform and Linode
 *Skreaun* uses [*Terraform*](https://terraform.io) to deploy its infrastructure on [Linode](https://linode.com).
